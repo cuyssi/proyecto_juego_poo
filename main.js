@@ -28,14 +28,7 @@ class Game {//en esta parte vamos a generar todos los elementos importantes del 
         this.personaje = new Personaje();
         this.container.appendChild(this.personaje.element);
         
-        //nubes
-        for(let i = 0; i < 10; i++) {
-            const nube = new Nube();
-            this.nubes.push(nube);
-            this.container.appendChild(nube.element);
-
-            
-        }    
+        
         
         // bloques
         if (this.bloques.length === 0) {//los bloques se crean atraves de la clase bloque y directamente le decimos su altura y donde queremos que aparezcan
@@ -49,6 +42,15 @@ class Game {//en esta parte vamos a generar todos los elementos importantes del 
             this.container.appendChild(bloque1.element);
             this.container.appendChild(bloque2.element);
         }
+        
+        //nubes
+        for(let i = 0; i < 10; i++) {
+            const nube = new Nube(this.bloques);
+            this.nubes.push(nube);
+            this.container.appendChild(nube.element);
+
+            
+        }    
     }
 
     agregarEventos() {//con este metodo escuchamos todo lo que pase en la ventana, como en este caso, que se pulse una tecla
@@ -172,21 +174,36 @@ class Personaje {//en esta parte vamos a generar todos los elementos importantes
     }    
 }
 
-class Nube {//en esta parte vamos a generar todos los elementos importantes del personaje
-    constructor() {//generamos las propiedades y metodos principales de las nubes y le creamos su lugar en el html
-        this.x = Math.random()* 700 + 50;//generamos coordenadas random para que aparezcan en cada partida en un sitio diferente
-        this.y = Math.random() * 250 + 50;
-        this.width = 30;//le proporcionamos las dimensiones que van a ocupar
+class Nube {//en esta parte vamos a generar todos los elementos importantes de la nube 
+    constructor(bloques) {
+        this.width = 30;
         this.height = 30;
-        this.element = document.createElement("div");//creamos un espacio para integrarlos en el html
-        this.element.classList.add("nube");//le damos clase
-        this.actualizarPosicion();//actualizamos posicioin
+        this.element = document.createElement("div");
+        this.element.classList.add("nube");
+        //-------------------------esta parte es para que las nubes no salgan encima de los bloques
+        this.solapada = true; //verifica si se solapan
+        let intentos = 0;
+        while (this.solapada && intentos < 50) { //evita bucles infinitos
+            this.x = Math.random() * 700 + 50;//generamos las nubes de manera aleatoria, luego comprueba si se solapan
+            this.y = Math.random() * 250 + 50;
+            this.solapada = bloques.some(bloque =>
+                this.x < bloque.x + bloque.width &&
+                this.x + this.width > bloque.x &&
+                this.y < bloque.y + bloque.height &&
+                this.y + this.height > bloque.y
+            );
+            intentos++;//si se solapan lo vuelve a intentar
         }
 
-        actualizarPosicion() {
-            this.element.style.left = `${this.x}px`;
-            this.element.style.top = `${this.y}px`;
-        }    
+        if (!this.solapada) { // solo añade la nube si encontró un buen sitio
+            this.actualizarPosicion();
+        }
+    }
+
+    actualizarPosicion() {
+        this.element.style.left = `${this.x}px`;
+        this.element.style.top = `${this.y}px`;
+    }
 }
 
 class Bloque {
