@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-image: url("./img/back2.png");
+    background-size: cover;
+}
+
+
+h1 {
+    font-size: 80px;
+    color: rgb(231, 236, 144);
+    text-shadow: 1px 3px 3px rgb(23, 18, 79);
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 1rem;
+}
+
+.cortinilla {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+    background: rgba(0, 0, 0, 0.7);   
+    backdrop-filter: blur(5px);
+    z-index: 200;
+}
+
+.article {    
+    background-color: #5ba5e7;
+    width: 18rem;
+    height: 11rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+    margin-bottom: 2rem;          
+}
+
+h2 {
+    color: #e7efa4;
+    font-size: 40px;    
+   
+    margin-bottom: 1rem;
+}
+
+h3, h4 {
+    font-size: 15px;
+    color: #e7efa4;
+}
+
+p {
+    font-size: 15px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: white
+}
+
+.instru {
+    margin-top: 10px;
+    font-size: 10px;
+    color: white;
+}
+
+.btn {      
+    background-color: #4e86b6;
+    color: white;
+    cursor: pointer;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 30px;    
+    border: 1px solid #5785ae;    
+}  
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 20px auto;
+    border: 10px solid #5ba5e7;
+    overflow: hidden;
+    border-radius: 30px;
+    background-image: url("./img/sky2.png");
+    background-size: cover;    
+}
+
+#puntos { 
+    font-size: 20px; 
+    text-align:right; 
+    margin: 20px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.bloque {
+    width: 50px;
+    background-image: url(./img/ladrillos.png);
+    position: absolute;
+}
+
+.personaje {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url("./img/pajaro.png");
+    background-size: cover;
+}
+
+@keyframes respirar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); } /* Se agranda un poco */
+    100% { transform: scale(1); }
+}
+
+.nube {
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    background-image: url("./img/nube.png");
+    background-size: cover;
+    animation: respirar 1.5s infinite ease-in-out;
+    z-index: 100;
+}
