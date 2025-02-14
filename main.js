@@ -44,7 +44,7 @@ class Game {//en esta parte vamos a generar todos los elementos importantes del 
         }
         
         //nubes
-        for(let i = 0; i < 10; i++) {
+        for(let i = 0; i < 5; i++) {
             const nube = new Nube(this.bloques);
             this.nubes.push(nube);
             this.container.appendChild(nube.element);
@@ -70,15 +70,23 @@ class Game {//en esta parte vamos a generar todos los elementos importantes del 
                     this.nube.currentTime = 0;//le indico que resetee el tiempo de reproducir otra vez el sonido para que suene sin esperas en cada nube             
                     this.nube.play();
                     this.actualizarPuntuacion(1); // Actualizamos la puntuación cada vez que se recoge una nube
+                    let nuevaNube = new Nube(this.bloques);//aqui creamos una nube nueva en el array por cada una que eliminamos
+                    if (!nuevaNube.solapada) {
+                        this.nubes.push(nuevaNube);
+                        this.container.appendChild(nuevaNube.element);
+                    }
                 }
             });
 
-            // si todas las nubes fueron recogidas ganamos la partida, se activa la alerta y suena la musica, volvemos a la pantalla de inicio
-            if (this.nubes.length === 0 && !this.ganado) {                
+            // si alcanzamos 100 puntos ganamos la partida, se activa la alerta y suena la musica, volvemos a la pantalla de inicio
+            if (this.puntuacion >= 100 && !this.ganado) {
                 this.ganar.play();
                 alert("¡Has ganado! 🎉");
                 this.gameOver = true;
-                location.reload();
+                setTimeout(() => {//esto es para que el sonido se pueda reproducir antes de que recarge la pagina
+                    location.reload();
+                }, 2000);
+            
                 return;
             }
 
