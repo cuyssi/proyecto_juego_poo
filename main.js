@@ -168,6 +168,27 @@ class Personaje {//en esta parte vamos a generar todos los elementos importantes
     }
 
     actualizarPosicion() {//aqui es donde se actualiza la posicion, se le llama desde varias partes del codigo 
+        const gameContainer = document.getElementById("game-container");
+    const containerWidth = gameContainer.clientWidth;
+    const containerHeight = gameContainer.clientHeight;
+
+    //evitamos que salga por los lados
+    if (this.x < 0){
+        this.x = 0;
+    } 
+    if (this.x + this.width > containerWidth) {
+        this.x = containerWidth - this.width;
+    } 
+    
+    if (this.y < 0) {
+        this.y = 0;//evitamos que suba más allá del techo
+    }    
+   
+    if (this.y >= containerHeight - this.height) { //evitamos que caiga por debajo del suelo
+        this.y = containerHeight - this.height;
+        this.velY = 0;
+        this.saltosRestantes = 40; //resetea los saltos cuando toca el suelo
+    }
         this.element.style.left = `${this.x}px`;
         this.element.style.top = `${this.y}px`;
     }
