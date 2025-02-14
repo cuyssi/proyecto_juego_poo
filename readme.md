@@ -1,12 +1,14 @@
 # 🦜 Despeja el cielo - Proyecto de POO 🕹️
 
+![Texto alternativo](./img/captura.png)
+
 ## 📚 Descripción
 
-Este es un proyecto creado para la clase de **Programación Orientada a Objetos (POO)**, basado en el famoso juego de **Flappy Bird**. El juego permite a un pájaro volar y esquivar bloques mientras recoge monedas (nubes). La programación se ha realizado utilizando **JavaScript** con una estructura orientada a objetos.
+Este es un proyecto creado para la clase de **Programación Orientada a Objetos (POO)**, basado en el famoso juego de **Flappy Bird**. El juego permite a un pájaro volar y esquivar bloques mientras recoge nubes. La programación se ha realizado utilizando **JavaScript** con una estructura orientada a objetos.
 
 ### 🌟 Características
 - 🦅 **Personaje jugable**: Un pájaro que puede moverse de izquierda a derecha y saltar.
-- 🧩 **Colisiones**: Detecta cuando el pájaro choca con bloques o recoge monedas.
+- 🧩 **Colisiones**: Detecta cuando el pájaro choca con bloques o recoge nubes.
 - 🎮 **Interactividad**: Control de salto mediante teclas de flecha.
 - 🏆 **Puntuación**: El jugador acumula puntos al recoger las nubes y gana cuando llega a 100 puntos.
 
@@ -24,7 +26,7 @@ Este es un proyecto creado para la clase de **Programación Orientada a Objetos 
 
 ## 📝 Notas
 - Si el pájaro choca con un bloque, perderás y el juego se reinicia.
-- Si el pájaro recoge todas las monedas, ganarás el juego.
+- Si el pájaro consigue 100 puntos al recoger las nubes, ganarás el juego.
 
 
 Juega y disfruta! 
