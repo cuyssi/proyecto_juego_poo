@@ -28,6 +28,12 @@ Este es un proyecto creado para la clase de **Programación Orientada a Objetos 
 - Si el pájaro choca con un bloque, perderás y el juego se reinicia.
 - Si el pájaro consigue 100 puntos al recoger las nubes, ganarás el juego.
 
+---
+📫 Cómo contactarme
+
+- Correo: [[cuyssi@hotmail.com](mailto:cuyssi@hotmail.com)]
+- LinkedIn: [Ana] ([https://www.linkedin.com/in/ana-castro-a476b8346/](https://www.linkedin.com/in/ana-castro-a476b8346/))
+---
 
 Juega y disfruta! 
 Gracias por ver mi perfil 😉
